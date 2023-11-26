@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace 'com.example.parcial_2_am_acn4bv_gustavo_vera'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.parcial_2_am_acn4bv_gustavo_vera"
