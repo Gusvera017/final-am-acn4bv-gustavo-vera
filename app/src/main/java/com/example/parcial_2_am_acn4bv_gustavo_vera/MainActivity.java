@@ -1,6 +1,8 @@
 package com.example.parcial_2_am_acn4bv_gustavo_vera;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
             Log.i("Firebase", "Usuario Autenticado");
             //reload();
         } else {
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
             Log.i("Firebase", "Usuario NO Autenticado, redirigir");
         }
     }
