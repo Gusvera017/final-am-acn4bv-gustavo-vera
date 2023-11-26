@@ -7,7 +7,7 @@
     tools:context=".LoginActivity">
 
     <EditText
-        android:id="@+id/emailImputLogin"
+        android:id="@+id/emailInputLogin"
         android:layout_width="335dp"
         android:layout_height="50dp"
         android:layout_marginTop="176dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/passwordImputLogin"
+        android:id="@+id/passwordInputLogin"
         android:layout_width="335dp"
         android:layout_height="50dp"
         android:layout_marginTop="25dp"
@@ -26,15 +26,16 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailImputLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/emailInputLogin" />
 
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="210dp"
         android:layout_height="50dp"
         android:layout_marginTop="25dp"
+        android:onClick="onButtonLoginClick"
         android:text="Iniciar Sesión"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordImputLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordInputLogin" />
 </androidx.constraintlayout.widget.ConstraintLayout>
