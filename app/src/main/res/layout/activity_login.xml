@@ -12,18 +12,22 @@
         android:layout_height="50dp"
         android:layout_marginTop="176dp"
         android:ems="10"
+        android:hint="@string/hint_on_input_email"
         android:inputType="textEmailAddress"
+        android:textColorHint="#8D6E63"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/passwordInputLogin"
+        android:hint="@string/hint_on_pass_input"
         android:layout_width="335dp"
         android:layout_height="50dp"
         android:layout_marginTop="25dp"
         android:ems="10"
         android:inputType="textPassword"
+        android:textColorHint="#8D6E63"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailInputLogin" />
@@ -34,7 +38,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="25dp"
         android:onClick="onButtonLoginClick"
-        android:text="Iniciar Sesión"
+        android:text="@string/text_on_btn_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordInputLogin" />
@@ -45,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:onClick="onButtonRegisterClick"
-        android:text="Register"
+        android:text="@string/text_on_btn_register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
