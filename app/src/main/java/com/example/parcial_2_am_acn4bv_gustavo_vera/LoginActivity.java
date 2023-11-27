@@ -17,6 +17,12 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
+    /*
+    * Datos de prueba:
+    * Email: gustavo.vera@davinci.edu.ar
+    * Pass: prueba1234
+    * */
+
     private FirebaseAuth mAuth;
 
     public void login(String emailInputLogin, String passwordInputLogin) {
@@ -38,6 +44,25 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
+    public void register(String emailInputLogin, String passwordInputLogin) {
+        Log.i("Firebase", "email: " + emailInputLogin);
+        Log.i("Firebase", "password: " + passwordInputLogin);
+
+        mAuth.createUserWithEmailAndPassword(emailInputLogin, passwordInputLogin)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()) {
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Falló el Registro.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
     public void onButtonLoginClick (View view) {
         EditText emailInput = findViewById(R.id.emailInputLogin);
         EditText passwordInput = findViewById(R.id.passwordInputLogin);
@@ -47,6 +72,17 @@ public class LoginActivity extends AppCompatActivity {
 
         this.login(emailInputLogin, passwordInputLogin);
     }
+
+    public void onButtonRegisterClick (View view) {
+        EditText emailInput = findViewById(R.id.emailInputLogin);
+        EditText passwordInput = findViewById(R.id.passwordInputLogin);
+
+        String emailInputLogin = emailInput.getText().toString();
+        String passwordInputLogin = passwordInput.getText().toString();
+
+        this.register(emailInputLogin, passwordInputLogin);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
