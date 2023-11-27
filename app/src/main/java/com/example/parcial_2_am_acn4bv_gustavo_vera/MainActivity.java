@@ -16,6 +16,10 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
 //    private FirebaseAuth mAuth;
 
+    public void checkConnectionOnClick (View view) {
+        checkConnection();
+    }
+
     public void checkConnection() {
         LinearLayout sinInternet = findViewById(R.id.container_msj_no_internet);
         ConnectivityManager connectivityManager =

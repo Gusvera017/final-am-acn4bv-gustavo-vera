@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,6 +39,7 @@
             android:id="@+id/btn_reintentar_conexion"
             android:layout_width="142dp"
             android:layout_height="wrap_content"
+            android:onClick="checkConnectionOnClick"
             android:text="@string/text_btn_reintentar_conexion" />
     </LinearLayout>
 
