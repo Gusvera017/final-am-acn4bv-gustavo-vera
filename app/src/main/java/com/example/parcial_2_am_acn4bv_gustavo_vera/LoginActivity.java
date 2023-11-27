@@ -1,17 +1,41 @@
 package com.example.parcial_2_am_acn4bv_gustavo_vera;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
-    public void login(String email, String password) {
-        Log.i("Firebase", "email: " + email);
-        Log.i("Firebase", "password: " + password);
+    private FirebaseAuth mAuth;
+
+    public void login(String emailInputLogin, String passwordInputLogin) {
+        Log.i("Firebase", "email: " + emailInputLogin);
+        Log.i("Firebase", "password: " + passwordInputLogin);
+
+        mAuth.signInWithEmailAndPassword(emailInputLogin, passwordInputLogin)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()) {
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Falló la Autenticación.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
     public void onButtonLoginClick (View view) {
@@ -27,5 +51,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        mAuth = FirebaseAuth.getInstance();
     }
 }
