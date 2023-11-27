@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,5 +34,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             Log.i("Firebase", "Usuario NO Autenticado, redirigir");
         }
+    }
+
+    public void logout(View view) {
+        mAuth.signOut();
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(intent);
     }
 }
