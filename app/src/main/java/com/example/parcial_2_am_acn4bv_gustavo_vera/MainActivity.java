@@ -27,18 +27,19 @@ public class MainActivity extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            Log.i("Firebase", "Usuario Autenticado");
-            //currentUser.reload();
+            //Log.i("Firebase", "Usuario Autenticado");
+            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+            startActivity(intent);
         } else {
+            Log.i("Firebase", "Usuario NO Autenticado, redirigir");
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
-            Log.i("Firebase", "Usuario NO Autenticado, redirigir");
         }
     }
 
-    public void logout(View view) {
+    /*public void logout(View view) {
         mAuth.signOut();
         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(intent);
-    }
+    }*/
 }
