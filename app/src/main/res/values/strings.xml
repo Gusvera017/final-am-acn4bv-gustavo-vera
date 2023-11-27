@@ -5,4 +5,6 @@
     <string name="text_on_btn_register">REGISTRARME</string>
     <string name="hint_on_input_email">Ingresar email</string>
     <string name="text_on_btn_logout">Logout</string>
+    <string name="text_msj_sin_conexion">Sin conexión a internet</string>
+    <string name="text_btn_reintentar_conexion">REINTENTAR</string>
 </resources>

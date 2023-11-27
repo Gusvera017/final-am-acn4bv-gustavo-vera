@@ -18,26 +18,28 @@
         app:layout_constraintTop_toTopOf="parent" />-->
 
     <LinearLayout
+        android:id="@+id/container_msj_no_internet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/text_no_internet"
             android:layout_width="wrap_content"
-            android:layout_height="19dp"
-            android:text="Hello World!" />
+            android:layout_height="37dp"
+            android:text="@string/text_msj_sin_conexion"
+            tools:ignore="TextSizeCheck" />
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
+            android:id="@+id/btn_reintentar_conexion"
+            android:layout_width="142dp"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="@string/text_btn_reintentar_conexion" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
