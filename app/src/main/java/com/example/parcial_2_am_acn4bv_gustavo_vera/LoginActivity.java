@@ -21,6 +21,8 @@ public class LoginActivity extends AppCompatActivity {
     * Datos de prueba:
     * Email: gustavo.vera@davinci.edu.ar
     * Pass: prueba1234
+    * Email: probando@probando.com
+    * Pass: prueba123456
     * */
 
     private FirebaseAuth mAuth;

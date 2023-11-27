@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">parcial-2-am-acn4bv-gustavo-vera</string>
     <string name="hint_on_pass_input">Ingresar contraseña</string>
-    <string name="text_on_btn_login">Iniciar Sesión</string>
-    <string name="text_on_btn_register">Register</string>
+    <string name="text_on_btn_login">INGRESAR</string>
+    <string name="text_on_btn_register">REGISTRARME</string>
     <string name="hint_on_input_email">Ingresar email</string>
     <string name="text_on_btn_logout">Logout</string>
 </resources>
