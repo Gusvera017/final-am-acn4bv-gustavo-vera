@@ -51,8 +51,6 @@ public class MainActivity extends AppCompatActivity {
 //        FirebaseUser currentUser = mAuth.getCurrentUser();
 //        if(currentUser != null){
             //Log.i("Firebase", "Usuario Autenticado");
-//            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-//            startActivity(intent);
 //        } else {
 //            Log.i("Firebase", "Usuario NO Autenticado, redirigir");
 //            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
