@@ -24,6 +24,8 @@ public class LoginActivity extends AppCompatActivity {
     * Pass: prueba1234
     * Email: probando@probando.com
     * Pass: prueba123456
+    *
+    * 31.20
     * */
 
     private FirebaseAuth mAuth;

@@ -14,9 +14,19 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
-//    private FirebaseAuth mAuth;
 
-    public void checkConnectionOnClick (View view) {
+    private FirebaseAuth mAuth;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mAuth = FirebaseAuth.getInstance();
+        checkConnection();
+    }
+
+    public void checkConnectionOnClick(View view) {
         checkConnection();
     }
 
@@ -25,42 +35,26 @@ public class MainActivity extends AppCompatActivity {
         ConnectivityManager connectivityManager =
                 (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-        if(networkInfo != null && networkInfo.isConnected()) {
+
+        if (networkInfo != null && networkInfo.isConnected()) {
             sinInternet.setVisibility(View.INVISIBLE);
-            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-            startActivity(intent);
+            checkUserAuthentication();
         } else {
             sinInternet.setVisibility(View.VISIBLE);
         }
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        checkConnection();
+    private void checkUserAuthentication() {
+        FirebaseUser currentUser = mAuth.getCurrentUser();
 
-        // Initialize Firebase Auth
-//        mAuth = FirebaseAuth.getInstance();
+        if (currentUser != null) {
+            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+        }
     }
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        if(currentUser != null){
-            //Log.i("Firebase", "Usuario Autenticado");
-//        } else {
-//            Log.i("Firebase", "Usuario NO Autenticado, redirigir");
-//            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-//            startActivity(intent);
-//        }
-//    }
-
-    /*public void logout(View view) {
-        mAuth.signOut();
-        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-        startActivity(intent);
-    }*/
 }
