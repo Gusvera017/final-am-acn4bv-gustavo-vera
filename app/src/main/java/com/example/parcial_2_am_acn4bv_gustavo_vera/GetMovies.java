@@ -59,7 +59,13 @@ public class GetMovies extends AsyncTask<String, Integer, String> {
             response = run(url);
             ObjectMapper objectMapper = new ObjectMapper();
             ApiResponse apiResponse = objectMapper.readValue(response, ApiResponse.class);
-            response = apiResponse.data.movies.get(0).title;
+            //response = apiResponse.data.movies.get(0).title;
+            List<Movie> movies = apiResponse.data.movies;
+
+            for(int i = 0; i < movies.size(); i++) {
+                Log.i("peliculas", movies.get(i).title);
+            }
+
             /*JSONObject moviesInfo = new JSONObject(response);
             JSONObject data = moviesInfo.getJSONObject("data");
             JSONArray movies = (JSONArray) data.get("movies");
