@@ -23,6 +23,7 @@ public class HomeActivity extends AppCompatActivity {
     public void obtenerInformacion() {
         GetMovies getMovies = new GetMovies();
         getMovies.execute("https://yts.mx/api/v2/list_movies.json");
+        //getMovies.execute("https://rickandmortyapi.com/api/character");
     }
 
     public void logout(View view) {
