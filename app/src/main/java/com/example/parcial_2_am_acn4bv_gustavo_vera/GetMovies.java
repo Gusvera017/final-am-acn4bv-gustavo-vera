@@ -5,7 +5,6 @@ import android.util.Log;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.json.JSONArray;
@@ -23,6 +22,15 @@ import okhttp3.Response;
 class Movie {
     @JsonProperty("title")
     public String title;
+
+    @JsonProperty("medium_cover_image")
+    public String mediumCoverImage;
+
+    @JsonProperty("year")
+    public String year;
+
+    @JsonProperty("rating")
+    public String rating;
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -59,20 +67,17 @@ public class GetMovies extends AsyncTask<String, Integer, String> {
             response = run(url);
             ObjectMapper objectMapper = new ObjectMapper();
             ApiResponse apiResponse = objectMapper.readValue(response, ApiResponse.class);
-            //response = apiResponse.data.movies.get(0).title;
             List<Movie> movies = apiResponse.data.movies;
 
             for(int i = 0; i < movies.size(); i++) {
-                Log.i("peliculas", movies.get(i).title);
+                Log.i("peliculas", "Titulo: "+ movies.get(i).title);
+                Log.i("peliculas", "Img: " + movies.get(i).mediumCoverImage);
+                Log.i("peliculas", "Año: " + movies.get(i).year);
+                Log.i("peliculas", "Rating: " + movies.get(i).rating);
+                Log.i("peliculas", "-----------------------------------");
             }
 
-            /*JSONObject moviesInfo = new JSONObject(response);
-            JSONObject data = moviesInfo.getJSONObject("data");
-            JSONArray movies = (JSONArray) data.get("movies");
-            JSONObject moviesInfo0 = (JSONObject) movies.get(0);
-            String nameMovie0 = (String) moviesInfo0.get("title");
-            response = nameMovie0;*/
-        } catch (IOException e/*| JSONException e*/) {
+        } catch (IOException e) {
             Log.e("Error", "Error en la conversión del JSON", e);
             throw new RuntimeException(e);
         }
