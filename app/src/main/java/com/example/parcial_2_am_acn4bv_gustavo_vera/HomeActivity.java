@@ -16,7 +16,13 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        obtenerInformacion();
         mAuth = FirebaseAuth.getInstance();
+    }
+
+    public void obtenerInformacion() {
+        GetMovies getMovies = new GetMovies();
+        getMovies.execute("https://yts.mx/api/v2/list_movies.json");
     }
 
     public void logout(View view) {
