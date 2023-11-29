@@ -16,4 +16,13 @@
         android:text="@string/text_on_btn_logout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewTitles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Títulos de películas:"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 </androidx.constraintlayout.widget.ConstraintLayout>
