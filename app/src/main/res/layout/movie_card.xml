@@ -10,6 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
         android:contentDescription="@string/content_description_image" />
 
     <TextView
@@ -18,7 +20,6 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_marginLeft="38dp"
         android:layout_marginTop="6dp"/>
 
 
@@ -28,7 +29,6 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_marginLeft="38dp"
         android:layout_marginTop="6dp"/>
 
     <TextView
@@ -37,7 +37,6 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_marginLeft="38dp"
         android:layout_marginTop="6dp"/>
 
 </LinearLayout>

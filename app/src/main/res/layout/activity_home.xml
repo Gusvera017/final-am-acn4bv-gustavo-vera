@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
+    <SearchView
+        android:id="@+id/searchViewMovies"
+        android:layout_width="226dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:iconifiedByDefault="false"
+        android:queryHint="Buscar"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/buttonLogout"
+        app:layout_constraintEnd_toStartOf="@+id/buttonLogout"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/buttonLogout"
         android:layout_width="wrap_content"
@@ -20,29 +36,18 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
         tools:context=".HomeActivity">
-
-        <TextView
-            android:id="@+id/text_peliculas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:text="@string/text_titulo_home"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="25dp"
-            android:layout_marginLeft="20dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewMovies"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/text_peliculas"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="2"
             android:clipToPadding="false"
             android:paddingTop="8dp"
-            android:paddingBottom="8dp"/>
+            android:paddingBottom="8dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2" />
 
     </RelativeLayout>
 

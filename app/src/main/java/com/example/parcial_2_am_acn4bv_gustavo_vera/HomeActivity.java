@@ -2,13 +2,15 @@ package com.example.parcial_2_am_acn4bv_gustavo_vera;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,16 +29,31 @@ public class HomeActivity extends AppCompatActivity implements GetMovies.AsyncTa
         setContentView(R.layout.activity_home);
 
         recyclerView = findViewById(R.id.recyclerViewMovies);
-        //recyclerView.setLayoutManager(new LinearLayoutManager(this));  // 1 card en pantalla
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2)); // 2 cards horizaontales
 
-        TextView textView = findViewById(R.id.text_peliculas);
-        textView.setOnClickListener(new View.OnClickListener() {
+        SearchView searchView = findViewById(R.id.searchViewMovies);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void onClick(View v) {
-                logout(v);
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if (movieAdapter != null) {
+                    movieAdapter.filter(newText);
+                }
+                return true;
             }
         });
+
+        //TextView textView = findViewById(R.id.text_peliculas);
+        //textView.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
+        //        logout(v);
+        //    }
+        //});
 
         obtenerInformacion();
         mAuth = FirebaseAuth.getInstance();
