@@ -1,6 +1,7 @@
 package com.example.parcial_2_am_acn4bv_gustavo_vera;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,7 +27,8 @@ public class HomeActivity extends AppCompatActivity implements GetMovies.AsyncTa
         setContentView(R.layout.activity_home);
 
         recyclerView = findViewById(R.id.recyclerViewMovies);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        //recyclerView.setLayoutManager(new LinearLayoutManager(this));  // 1 card en pantalla
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2)); // 2 cards horizaontales
 
         TextView textView = findViewById(R.id.text_peliculas);
         textView.setOnClickListener(new View.OnClickListener() {

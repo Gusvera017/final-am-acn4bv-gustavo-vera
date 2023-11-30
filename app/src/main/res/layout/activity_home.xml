@@ -30,12 +30,23 @@
             android:layout_marginTop="50dp"
             android:layout_marginLeft="20dp"/>
 
+        <!--<androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewMovies"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/text_peliculas"
+            android:layout_marginTop="8dp"/>-->
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewMovies"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/text_peliculas"
-            android:layout_marginTop="8dp"/>
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            android:clipToPadding="false"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"/>
 
     </RelativeLayout>
 
