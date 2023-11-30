@@ -8,4 +8,5 @@
     <string name="text_msj_sin_conexion">Sin conexión a internet</string>
     <string name="text_btn_reintentar_conexion">REINTENTAR</string>
     <string name="content_description_image">Movie Cover Image</string>
+    <string name="text_titulo_home">PELICULAS:</string>
 </resources>
