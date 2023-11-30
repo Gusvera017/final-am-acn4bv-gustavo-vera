@@ -51,7 +51,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
         holder.textViewTitle.setText(getShortenedTitle(movie.title));
         holder.textViewYear.setText(movie.year);
-        holder.textViewRating.setText(movie.rating);
+        holder.textViewRating.setText(movie.rating + "/10");
     }
 
     @Override

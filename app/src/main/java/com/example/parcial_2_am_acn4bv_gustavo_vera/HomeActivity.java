@@ -61,7 +61,7 @@ public class HomeActivity extends AppCompatActivity implements GetMovies.AsyncTa
 
     public void obtenerInformacion() {
         GetMovies getMovies = new GetMovies(this);
-        getMovies.execute("https://yts.mx/api/v2/list_movies.json");
+        getMovies.execute("https://yts.mx/api/v2/list_movies.json?limit=40");
     }
 
     @Override
