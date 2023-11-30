@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
@@ -30,12 +32,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
         Movie movie = movies.get(position);
 
-        // Configura las vistas de la tarjeta con los datos de la película
+        Picasso.get()
+                .load(movie.mediumCoverImage)
+                .into(holder.imageViewCover);
+
         holder.textViewTitle.setText(movie.title);
         holder.textViewYear.setText(movie.year);
         holder.textViewRating.setText(movie.rating);
-
-        // Puedes configurar otras vistas aquí (imagen, año, rating, etc.)
     }
 
     @Override
@@ -44,14 +47,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     }
 
     public static class MovieViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageViewPoster;
+        ImageView imageViewCover;
         TextView textViewTitle;
         TextView textViewYear;
         TextView textViewRating;
 
         public MovieViewHolder(@NonNull View itemView) {
             super(itemView);
-            //imageViewPoster = itemView.findViewById(R.id.imageViewPoster);
+            imageViewCover = itemView.findViewById(R.id.imageViewCover);
             textViewTitle = itemView.findViewById(R.id.textViewTitle);
             textViewYear = itemView.findViewById(R.id.textViewYear);
             textViewRating = itemView.findViewById(R.id.textViewRating);

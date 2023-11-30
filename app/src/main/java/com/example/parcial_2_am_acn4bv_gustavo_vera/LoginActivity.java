@@ -25,8 +25,9 @@ public class LoginActivity extends AppCompatActivity {
     * Email: probando@probando.com
     * Pass: prueba123456
     *
-    * https://drive.google.com/file/d/1N0IrbFF4Hj366XTocVmlqT6xoSPVVVrv/view?t=2892s
-    * 48.00
+    * AGREGAR UNA AUTENTICACIÓN
+    *
+    *
     * */
 
     private FirebaseAuth mAuth;
