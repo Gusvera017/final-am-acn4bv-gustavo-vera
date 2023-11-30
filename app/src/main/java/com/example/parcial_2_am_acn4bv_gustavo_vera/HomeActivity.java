@@ -8,16 +8,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.SearchView;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
-public class HomeActivity extends AppCompatActivity implements GetMovies.AsyncTaskListener<List<Movie>> {
+public class HomeActivity extends AppCompatActivity implements GetMovies.AsyncTaskListener<List<Movie>>, MovieAdapter.OnMovieClickListener {
 
     private FirebaseAuth mAuth;
     private RecyclerView recyclerView;
@@ -47,14 +44,6 @@ public class HomeActivity extends AppCompatActivity implements GetMovies.AsyncTa
             }
         });
 
-        //TextView textView = findViewById(R.id.text_peliculas);
-        //textView.setOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View v) {
-        //        logout(v);
-        //    }
-        //});
-
         obtenerInformacion();
         mAuth = FirebaseAuth.getInstance();
     }
@@ -73,8 +62,14 @@ public class HomeActivity extends AppCompatActivity implements GetMovies.AsyncTa
             Log.i("peliculasHome", "Rating: " + movie.rating);
             Log.i("peliculasHome", "-----------------------------------");
         }
-        movieAdapter = new MovieAdapter(movies);
+        movieAdapter = new MovieAdapter(movies, this);
         recyclerView.setAdapter(movieAdapter);
+    }
+
+    @Override
+    public void onMovieClick(int position) {
+        Intent intent = new Intent(getApplicationContext(), DetailMovieActivity.class);
+        startActivity(intent);
     }
 
     public void logout(View view) {

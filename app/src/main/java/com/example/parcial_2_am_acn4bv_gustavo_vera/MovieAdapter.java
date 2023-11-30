@@ -18,10 +18,16 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     private List<Movie> movies;
     private List<Movie> originalMovies;
+    private OnMovieClickListener onMovieClickListener;
 
-    public MovieAdapter(List<Movie> movies) {
+    public MovieAdapter(List<Movie> movies, OnMovieClickListener onMovieClickListener) {
         this.movies = movies;
         this.originalMovies = new ArrayList<>(movies);
+        this.onMovieClickListener = onMovieClickListener;
+    }
+
+    public interface OnMovieClickListener {
+        void onMovieClick(int position);
     }
 
     private String getShortenedTitle(String fullTitle) {
@@ -38,7 +44,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     @Override
     public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_card, parent, false);
-        return new MovieViewHolder(view);
+        return new MovieViewHolder(view, onMovieClickListener);
     }
 
     @Override
@@ -74,18 +80,27 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         notifyDataSetChanged();
     }
 
-    public static class MovieViewHolder extends RecyclerView.ViewHolder {
+    public static class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView imageViewCover;
         TextView textViewTitle;
         TextView textViewYear;
         TextView textViewRating;
+        OnMovieClickListener onMovieClickListener;
 
-        public MovieViewHolder(@NonNull View itemView) {
+        public MovieViewHolder(@NonNull View itemView, OnMovieClickListener onMovieClickListener) {
             super(itemView);
             imageViewCover = itemView.findViewById(R.id.imageViewCover);
             textViewTitle = itemView.findViewById(R.id.textViewTitle);
             textViewYear = itemView.findViewById(R.id.textViewYear);
             textViewRating = itemView.findViewById(R.id.textViewRating);
+            this.onMovieClickListener = onMovieClickListener;
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            onMovieClickListener.onMovieClick(getAdapterPosition());
         }
     }
 }
