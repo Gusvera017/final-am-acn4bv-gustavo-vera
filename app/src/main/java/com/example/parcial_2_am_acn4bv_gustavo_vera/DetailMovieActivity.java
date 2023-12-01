@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,6 +19,12 @@ public class DetailMovieActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_movie);
+
+        TextView detailTitleTextView = findViewById(R.id.textViewDetailMovieTitle);
+        TextView detailYearTextView = findViewById(R.id.textViewDetailMovieYear);
+        ImageView detailMediumCoverImageView = findViewById(R.id.imageViewDetailMovieCover);
+        TextView detailGenreTextView = findViewById(R.id.textViewDetailMovieGenre);
+        TextView detailSynopsisTextView = findViewById(R.id.textViewDetailMovieSynopsis);
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -33,6 +43,13 @@ public class DetailMovieActivity extends AppCompatActivity {
             Log.i("DetailMovie", "Genres: " + genresList);
             Log.i("DetailMovie", "Summary: " + summary);
             Log.i("DetailMovie", "-----------------------------------");
+
+            detailTitleTextView.setText(title);
+            detailYearTextView.setText(year);
+            detailGenreTextView.setText("Genres: " + String.join(", ", genresList));
+            detailSynopsisTextView.setText("Synopsis: " + summary);
+
+            Picasso.get().load(mediumCoverImage).into(detailMediumCoverImageView);
         }
     }
 }
