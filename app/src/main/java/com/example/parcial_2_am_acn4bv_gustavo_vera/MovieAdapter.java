@@ -20,6 +20,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     private List<Movie> originalMovies;
     private OnMovieClickListener onMovieClickListener;
 
+    public Movie getMovie(int position) {
+        return movies.get(position);
+    }
+
     public MovieAdapter(List<Movie> movies, OnMovieClickListener onMovieClickListener) {
         this.movies = movies;
         this.originalMovies = new ArrayList<>(movies);

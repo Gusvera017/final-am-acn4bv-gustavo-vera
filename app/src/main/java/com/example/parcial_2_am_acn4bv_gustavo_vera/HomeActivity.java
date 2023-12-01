@@ -68,8 +68,20 @@ public class HomeActivity extends AppCompatActivity implements GetMovies.AsyncTa
 
     @Override
     public void onMovieClick(int position) {
-        Intent intent = new Intent(getApplicationContext(), DetailMovieActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(getApplicationContext(), DetailMovieActivity.class);
+        // startActivity(intent);
+
+        if (movieAdapter != null) {
+            Movie selectedMovie = movieAdapter.getMovie(position);
+
+            Intent intent = new Intent(getApplicationContext(), DetailMovieActivity.class);
+            intent.putExtra("title", selectedMovie.title);
+            intent.putExtra("mediumCoverImage", selectedMovie.mediumCoverImage);
+            intent.putExtra("year", selectedMovie.year);
+            intent.putExtra("rating", selectedMovie.rating);
+
+            startActivity(intent);
+        }
     }
 
     public void logout(View view) {
