@@ -60,6 +60,8 @@ public class HomeActivity extends AppCompatActivity implements GetMovies.AsyncTa
             Log.i("peliculasHome", "Img: " + movie.mediumCoverImage);
             Log.i("peliculasHome", "Año: " + movie.year);
             Log.i("peliculasHome", "Rating: " + movie.rating);
+            Log.i("peliculasHome", "Genres: " + movie.genres);
+            Log.i("peliculasHome", "Summary: " + movie.summary);
             Log.i("peliculasHome", "-----------------------------------");
         }
         movieAdapter = new MovieAdapter(movies, this);
@@ -79,6 +81,9 @@ public class HomeActivity extends AppCompatActivity implements GetMovies.AsyncTa
             intent.putExtra("mediumCoverImage", selectedMovie.mediumCoverImage);
             intent.putExtra("year", selectedMovie.year);
             intent.putExtra("rating", selectedMovie.rating);
+            String[] genresArray = selectedMovie.genres.toArray(new String[0]);
+            intent.putExtra("genres", genresArray);
+            intent.putExtra("summary", selectedMovie.summary);
 
             startActivity(intent);
         }

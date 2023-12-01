@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class DetailMovieActivity extends AppCompatActivity {
 
     @Override
@@ -19,11 +22,16 @@ public class DetailMovieActivity extends AppCompatActivity {
             String mediumCoverImage = intent.getStringExtra("mediumCoverImage");
             String year = intent.getStringExtra("year");
             String rating = intent.getStringExtra("rating");
+            String[] genresArray = intent.getStringArrayExtra("genres");
+            List<String> genresList = Arrays.asList(genresArray);
+            String summary = intent.getStringExtra("summary");
 
             Log.i("DetailMovie", "Titulo: " + title);
             Log.i("DetailMovie", "Img: " + mediumCoverImage);
             Log.i("DetailMovie", "Año: " + year);
             Log.i("DetailMovie", "Rating: " + rating);
+            Log.i("DetailMovie", "Genres: " + genresList);
+            Log.i("DetailMovie", "Summary: " + summary);
             Log.i("DetailMovie", "-----------------------------------");
         }
     }

@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.List;
 
 import okhttp3.OkHttpClient;
@@ -15,7 +16,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-class Movie {
+class Movie implements Serializable {
     @JsonProperty("title")
     public String title;
 
@@ -27,6 +28,12 @@ class Movie {
 
     @JsonProperty("rating")
     public String rating;
+
+    @JsonProperty("genres")
+    public List<String> genres;
+
+    @JsonProperty("summary")
+    public String summary;
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
