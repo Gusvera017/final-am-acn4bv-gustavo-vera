@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
+    private User user;
+
     /* ORIGINAL CODE
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
                                 for(QueryDocumentSnapshot document : task.getResult()) {
                                     String id = document.getId();
                                     Object data = document.getData();
+                                    user = document.toObject(User.class);
 
                                     /*Actualización de la información
 
@@ -107,7 +110,9 @@ public class MainActivity extends AppCompatActivity {
                                                  }
                                             });*/
 
-                                    Log.i("firestore", "id: " + id + " data: " + data.toString());
+                                    Log.i("firestore", "nombre: " + user.getNombre());
+                                    Log.i("firestore", "nombre: " + user.getApellido());
+                                    //Log.i("firestore", "id: " + id + " data: " + data.toString());
                                 }
                             }
                         }
