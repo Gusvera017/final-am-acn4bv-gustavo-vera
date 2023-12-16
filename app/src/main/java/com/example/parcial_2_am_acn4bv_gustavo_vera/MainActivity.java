@@ -82,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
         if (currentUser != null) {
             String uid = currentUser.getUid();
             db.collection("users")
+                    //Filtro de condición de búsqueda
+                    .whereEqualTo("uid", uid)
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
@@ -90,6 +92,21 @@ public class MainActivity extends AppCompatActivity {
                                 for(QueryDocumentSnapshot document : task.getResult()) {
                                     String id = document.getId();
                                     Object data = document.getData();
+
+                                    db.collection("users")
+                                            .document(id)
+                                            .update("apellido", "Vera")
+
+
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                 @Override
+                                                 public void onComplete(@NonNull Task<Void> task) {
+                                                      if(task.isSuccessful()){
+                                                           // Tal vez, mensaje de éxito!
+                                                      }
+                                                 }
+                                            });
+
                                     Log.i("firestore", "id: " + id + " data: " + data.toString());
                                 }
                             }
