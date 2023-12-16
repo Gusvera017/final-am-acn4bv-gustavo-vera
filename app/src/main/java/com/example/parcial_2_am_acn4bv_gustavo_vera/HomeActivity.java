@@ -112,6 +112,9 @@ public class HomeActivity extends AppCompatActivity implements GetMovies.AsyncTa
                 if (item.getItemId() == R.id.menu_item_logout) {
                     logout();
                     return true;
+                } else if (item.getItemId() == R.id.menu_item_userpage) {
+                    userPage();
+                    return true;
                 } else {
                     return false;
                 }
@@ -124,6 +127,11 @@ public class HomeActivity extends AppCompatActivity implements GetMovies.AsyncTa
     public void logout() {
         mAuth.signOut();
         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(intent);
+    }
+
+    public void userPage() {
+        Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
         startActivity(intent);
     }
 }
