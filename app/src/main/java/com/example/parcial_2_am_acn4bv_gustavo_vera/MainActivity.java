@@ -93,11 +93,11 @@ public class MainActivity extends AppCompatActivity {
                                     String id = document.getId();
                                     Object data = document.getData();
 
+                                    /*Actualización de la información
+
                                     db.collection("users")
                                             .document(id)
                                             .update("apellido", "Vera")
-
-
                                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                  @Override
                                                  public void onComplete(@NonNull Task<Void> task) {
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                                                            // Tal vez, mensaje de éxito!
                                                       }
                                                  }
-                                            });
+                                            });*/
 
                                     Log.i("firestore", "id: " + id + " data: " + data.toString());
                                 }
