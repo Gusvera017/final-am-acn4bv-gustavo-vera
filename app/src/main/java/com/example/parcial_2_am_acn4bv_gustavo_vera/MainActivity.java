@@ -26,16 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
     private User user;
 
-    /* ORIGINAL CODE
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        mAuth = FirebaseAuth.getInstance();
-        checkConnection();
-    }*/
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,20 +53,6 @@ public class MainActivity extends AppCompatActivity {
             sinInternet.setVisibility(View.VISIBLE);
         }
     }
-
-    /* ORIGINAL CODE
-
-    private void checkUserAuthentication() {
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-
-        if (currentUser != null) {
-            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-            startActivity(intent);
-        } else {
-            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-            startActivity(intent);
-        }
-    } */
 
     private void checkUserAuthentication() {
         FirebaseUser currentUser = mAuth.getCurrentUser();
