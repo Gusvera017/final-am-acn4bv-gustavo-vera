@@ -24,6 +24,8 @@ public class LoginActivity extends AppCompatActivity {
     * Pass: prueba1234
     * Email: probando@probando.com
     * Pass: prueba123456
+    * Email: g@g.com
+    * Pass: gggggg
     *
     * AGREGAR UNA AUTENTICACIÓN
     *
@@ -45,25 +47,6 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
                         } else {
                             Toast.makeText(LoginActivity.this, "Falló la Autenticación.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-    }
-
-    public void register(String emailInputLogin, String passwordInputLogin) {
-        Log.i("Firebase", "email: " + emailInputLogin);
-        Log.i("Firebase", "password: " + passwordInputLogin);
-
-        mAuth.createUserWithEmailAndPassword(emailInputLogin, passwordInputLogin)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()) {
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                            startActivity(intent);
-                        } else {
-                            Toast.makeText(LoginActivity.this, "Falló el Registro.",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
