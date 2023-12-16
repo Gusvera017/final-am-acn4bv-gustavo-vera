@@ -81,13 +81,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onButtonRegisterClick (View view) {
-        EditText emailInput = findViewById(R.id.emailInputLogin);
-        EditText passwordInput = findViewById(R.id.passwordInputLogin);
-
-        String emailInputLogin = emailInput.getText().toString();
-        String passwordInputLogin = passwordInput.getText().toString();
-
-        this.register(emailInputLogin, passwordInputLogin);
+        Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+        startActivity(intent);
     }
 
     @Override

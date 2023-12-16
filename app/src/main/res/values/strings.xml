@@ -9,4 +9,9 @@
     <string name="text_btn_reintentar_conexion">REINTENTAR</string>
     <string name="content_description_image">Movie Cover Image</string>
     <string name="text_titulo_home">PELICULAS</string>
+    <string name="txt_btn_register">REGISTRAR</string>
+    <string name="hint_nombre_registro">Ingresar nombre</string>
+    <string name="hint_apellido_registro">Ingresar apellido</string>
+    <string name="hint_mail_registro">Ingresar email</string>
+    <string name="hint_contrasena_registro">Ingresar contraseña</string>
 </resources>
