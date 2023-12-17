@@ -131,7 +131,7 @@ public class HomeActivity extends AppCompatActivity implements GetMovies.AsyncTa
     }
 
     public void userPage() {
-        Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+        Intent intent = new Intent(getApplicationContext(), UserPageActivity.class);
         startActivity(intent);
     }
 }
