@@ -1,2 +1,2 @@
-# parcial-2-am-acn4bv-gustavo-vera
-Segundo Parcial de Aplicaciones Móviles - Gustavo Vera
+# Final-am-acn4bv-gustavo-vera
+Trabajo final de Aplicaciones Móviles - Gustavo Vera
