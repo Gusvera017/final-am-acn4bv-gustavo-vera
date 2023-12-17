@@ -24,7 +24,7 @@ public class UserPageActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
-        //textViewNombreApellido = findViewById(R.id.textViewNombreApellido);
+        textViewNombreApellido = findViewById(R.id.textViewNombreApellido);
 
         obtenerInformacionUsuario();
     }
@@ -45,7 +45,7 @@ public class UserPageActivity extends AppCompatActivity {
                                 String nombre = document.getString("nombre");
                                 String apellido = document.getString("apellido");
 
-                                //mostrarDatosUsuario(nombre, apellido);
+                                mostrarDatosUsuario(nombre, apellido);
                                 Log.i("UserPageActivity", "nombre: " + nombre + " apellido: " + apellido);
                             } else {
                                 Log.i("UserPageActivity", "El documento no existe");
